@@ -1,0 +1,20 @@
+#----------------------- Backend
+/backend/node_modules/
+/backend/dist/
+/backend/build/
+/backend/.env
+/backend/.env.local
+/backend/logs/
+/backend/*.log
+/backend/npm-debug.log*
+/backend/.DS_Store
+/backend/Thumbs.db
+/backend/.vscode/
+/backend/.idea/
+/backend/*.tsbuildinfo
+/backend/coverage/
+/backend/.next/
+/backend/*.sqlite
+/backend/*.db
+/backend/dump.rdb
+#----------------------- frontend
