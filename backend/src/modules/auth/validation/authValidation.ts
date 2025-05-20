@@ -7,3 +7,8 @@ export const verifyOTPSchema = Joi.object({
     userId: Joi.string().required(),
     otp: Joi.string().required(),
 })
+export const forgotPasswordSchema = Joi.object({
+    email: Joi.string().required().messages({
+        "any.required": "The email field is required."
+    })
+});

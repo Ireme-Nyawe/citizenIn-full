@@ -1,6 +1,6 @@
 import express from "express";
 import bodyValidation from "../middlewares/validationMiddleware";
-import { loginSchema, verifyOTPSchema } from "../modules/auth/validation/authValidation";
+import { forgotPasswordSchema, loginSchema, verifyOTPSchema } from "../modules/auth/validation/authValidation";
 import {
   is2FAEnabled,
   isOTPValid,
@@ -21,5 +21,8 @@ authRouter.post(
   authController.userLogin
 );
 authRouter.post("/verify-otp",bodyValidation(verifyOTPSchema),isOTPValid,authController.userLogin)
+authRouter.get("/forgot-password",bodyValidation(forgotPasswordSchema),isUserExistByEmail,authController.forgotPassword)
+authRouter.post("/reset-otp-verify",bodyValidation(verifyOTPSchema),isOTPValid,authController.otpValidation)
+
 
 export default authRouter;
