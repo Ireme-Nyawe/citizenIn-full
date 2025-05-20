@@ -8,6 +8,7 @@ export interface IUser extends Document {
   password?: string;
   role?: string;
   is2fa?: boolean;
+  isActive: boolean;
   phone?: string;
   profile?: string;
 }
@@ -15,7 +16,7 @@ declare global {
   namespace Express {
     interface Request {
       user?: IUser;
-      users?: IUser[]
+      users?: IUser[];
     }
   }
 }
@@ -47,6 +48,7 @@ const userSchema: Schema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
+    isActive: { type: Boolean, default: true },
     phone: {
       type: String,
       required: false,
@@ -54,7 +56,7 @@ const userSchema: Schema = new mongoose.Schema(
     profile: {
       type: String,
       default: null,
-      required: false
+      required: false,
     },
   },
   {

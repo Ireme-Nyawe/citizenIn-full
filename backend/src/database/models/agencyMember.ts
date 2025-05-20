@@ -5,7 +5,6 @@ export interface IAgencyMember extends Document {
   userId: mongoose.Types.ObjectId;
   agencyId: mongoose.Types.ObjectId;
   position?: string;
-  isActive?: boolean;
 }
 declare global {
     namespace Express {
@@ -31,10 +30,6 @@ const agencyMemberSchema: Schema = new Schema(
     position: {
       type: String,
       required: true,
-    },
-    isActive: {
-      type: Boolean,
-      default: true,
     },
   },
   { timestamps: true }
