@@ -14,7 +14,7 @@ const userLogin = async (req: Request, res: Response) => {
       res.status(httpStatus.OK).json({
         status: httpStatus.OK,
         message: "Login successful",
-        data: session,
+        data: {token:token,user:req.user},
       });
     } catch (error: any) {
       res

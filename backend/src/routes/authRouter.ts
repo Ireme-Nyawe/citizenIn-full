@@ -1,8 +1,9 @@
 import express from "express";
 import bodyValidation from "../middlewares/validationMiddleware";
-import { loginSchema } from "../modules/auth/validation/authValidation";
+import { loginSchema, verifyOTPSchema } from "../modules/auth/validation/authValidation";
 import {
   is2FAEnabled,
+  isOTPValid,
   isUserExistByEmail,
   isUserPasswordValid,
   isUserStatusValid,
@@ -19,5 +20,6 @@ authRouter.post(
   is2FAEnabled,
   authController.userLogin
 );
+authRouter.post("/verify-otp",bodyValidation(verifyOTPSchema),isOTPValid,authController.userLogin)
 
 export default authRouter;

@@ -92,3 +92,34 @@ export const isUserStatusValid = async (
     }
   }
   
+  export const isOTPValid = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const { userId, otp } = req.body;
+      const session = await authRepository.findSessionByTwoAttributes("userId", userId, "content", otp)
+  
+      if (!session) {
+        res.status(httpStatus.BAD_REQUEST).json({
+          status: httpStatus.BAD_REQUEST,
+          message: "Invalid OTP",
+        });
+        return;
+      }
+  
+      const user = await authRepository.findUserById(userId);
+  
+      if (!user) {
+        res.status(httpStatus.NOT_FOUND).json({
+          status: httpStatus.NOT_FOUND,
+          message: "User not found",
+        });
+        return;
+      }
+  
+      await authRepository.deleteSession(session._id)
+  
+      req.user = user
+      next();
+    } catch (error) {
+      return next(error);
+    }
+  }
