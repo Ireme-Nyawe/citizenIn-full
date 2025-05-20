@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import { generateOTP, generateToken } from "../../../helpers/auth";
+import { generateOTP, generateToken, hashPassword } from "../../../helpers/auth";
 import authRepository from "../repositories/authRepository";
 import { sendEmail } from "../../../services/emailservice";
 
@@ -67,5 +67,35 @@ const otpValidation = async (req:Request, res:Response) => {
         });
     }
 }
+const resetPassword = async (req:Request, res:Response) => {
+    try {
+        const userId = String(req?.user?._id || "");
+        const userName = req.user?.firstName || req.user?.email?.split("@")[0];
+        const password=await hashPassword(req.body.password)
+        const updatedUser = await authRepository.updateUser(userId, {password})
+        const sessionId = await authRepository.findSessionByOneAtribute("userId",userId)
+        await authRepository.deleteSession(sessionId);
+        await sendEmail(
+            String(req?.user?.email),
+            "Password Reseted successfully",
+            "Password changed successfully",
+            `<p> Dear ${userName}, Your password is changed successfully, feel free to change it again in the case you forget it.</b>. 
+                  Thank you .</p>`
+          );
 
-export default { userLogin, forgotPassword ,otpValidation};
+        res.status(200).json({
+            status: 200,
+            message: "Password reseted successfully",
+            data: updatedUser
+        });
+    } catch (error:any) {
+        res.status(500).json({
+            status: 500,
+            message: "An error occurred while processing your request.",
+            error: error.message
+        });
+    }
+}
+
+
+export default { userLogin, forgotPassword ,otpValidation,resetPassword};
