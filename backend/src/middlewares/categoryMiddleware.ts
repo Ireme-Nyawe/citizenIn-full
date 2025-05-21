@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
 import categoryRepository from "../modules/category/repositories/categoryRepository";
-export const isUserExistByEmail = async (
+export const isCategoryExistById = async (
   req: Request,
   res: Response,
   next: NextFunction
