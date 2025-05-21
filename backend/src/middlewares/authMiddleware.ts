@@ -104,10 +104,10 @@ export const isUserStatusValid = async (
   
         const session = await authRepository.saveSession(String(req?.user?._id),otp);
         
-        res.status(httpStatus.OK).json({
-          status: httpStatus.OK,
+        res.status(httpStatus.CREATED).json({
+          status: httpStatus.CREATED,
           message: "OTP sent successfully",
-          data: { session },
+          data:req.user
         });
         return;
       }

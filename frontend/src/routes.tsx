@@ -4,6 +4,8 @@ import GetStarted from "./pages/GetStarted";
 import FeaturesPage from "./pages/FeaturesPage";
 import Contact from "./pages/Contact";
 import FAQsPage from "./pages/FAQsPage";
+import ProtectedRoute from "./components/dashboard/ProtectedRoute";
+import DashboardLayout from "./pages/dashboard/DashboardLayout";
 
 const AppRouter = ()=>{
 return (
@@ -13,6 +15,13 @@ return (
          <Route path="/faq" element={<FAQsPage />} />
          <Route path="/contact" element={<Contact />} />
          <Route path="/features" element={<FeaturesPage />} />
+
+         <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard/" element={<DashboardLayout />}>
+      
+          <Route path="*" element={<h1>Page Not Found</h1>} />
+        </Route>
+      </Route>
     </Routes>
 )
 }

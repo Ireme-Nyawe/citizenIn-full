@@ -275,7 +275,7 @@ const Features = () => {
                         <div className="ml-3">
                           <div className="font-medium">Web App</div>
                           <div className="text-xs text-gray-500">
-                            -------
+                            available
                           </div>
                         </div>
                       </div>
