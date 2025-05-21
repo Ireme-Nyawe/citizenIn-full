@@ -16,7 +16,7 @@ const GetStartedContent: React.FC = () => {
   >("login");
   const [userId, setLogingUser] = useState<string>("");
 
-  const switchToRegister = () => setView("register");
+  const switchToRegister = ():any => setView("register");
   const switchToLogin = () => setView("login");
   const switchToVerifyLoginOtp = (user: string) => {
     setView("verifyLoginOtp");

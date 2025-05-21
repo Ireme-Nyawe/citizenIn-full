@@ -18,7 +18,7 @@ const LandingPage = () => {
                 <span className="font-bold">#muturage ku isonga</span> .
               </p>
               <div>
-                <Link to="/get-started">
+                <Link  to="/get-started" >
                   <button className="cursor-pointer hover:border hover:border-white bg-white hover:bg-blue-700 hover:text-white text-blue-700 px-8 py-3 rounded-md font-bold transition-all duration-300 shadow-lg hover:shadow-xl">
                     Get Started
                   </button>

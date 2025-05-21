@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import FAQsPage from "./pages/FAQsPage";
 import ProtectedRoute from "./components/dashboard/ProtectedRoute";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
+import Logout from "./components/dashboard/Logout";
 
 const AppRouter = () => {
   return (
@@ -15,6 +16,7 @@ const AppRouter = () => {
       <Route path="/faq" element={<FAQsPage />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/features" element={<FeaturesPage />} />
+      <Route path="/logout" element={<Logout />} />
       {/* logged */}
       <Route element={<ProtectedRoute />}>
         {/* admin */}

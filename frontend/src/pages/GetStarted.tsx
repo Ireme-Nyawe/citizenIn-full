@@ -1,15 +1,15 @@
-import GetStartedContent from '../components/GetStartedContent'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import GetStartedContent from "../components/GetStartedContent";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const GetStarted = () => {
   return (
     <div>
-        <Header />
-      <GetStartedContent/>
+      <Header />
+      <GetStartedContent />
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default GetStarted
+export default GetStarted;

@@ -29,48 +29,35 @@ const DashboardHeader = ({ sideBarToggle, profile }: DashboardHeaderProps) => {
   );
 
   return (
-    <header className="bg-primary text-white shadow-lg px-4 py-3 sm:p-4 flex items-center justify-between z-10">
-      <div className="flex items-center gap-2 sm:gap-4">
-        <button
+    <header className="bg-blue-700 text-white flex justify-between items-center p-4 shadow-md">
+      <div className="flex items-center">
+        <button 
           onClick={sideBarToggle}
-          className="md:hidden p-1.5 hover:bg-secondary rounded-lg"
+          className="mr-4 p-2 rounded hover:bg-blue-800 transition-colors"
         >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+          <span className="sr-only">Toggle Menu</span>
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-
-        <h1 className="text-xl sm:text-2xl font-bold">Fixo</h1>
+        <h1 className="text-xl font-bold">Fixo</h1>
       </div>
-
-      <div className="flex items-center gap-3 sm:gap-6">
-        <div className="hidden sm:flex items-center gap-2 bg-secondary py-2 px-3 sm:px-4 rounded-lg select-none">
-          
-            wwewe
-
-        </div>
-
-        <button className="p-1.5 sm:p-2 hover:bg-secondary rounded-full">
-          <Bell />
-        </button>
-
-        <Link
-          to={'/dashboard/profile'}
-          className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-secondary flex items-center justify-center"
+      
+      <div className="flex items-center space-x-4">
+        <button 
+          onClick={() => setShowBalance(!showBalance)}
+          className="p-2 bg-blue-600 rounded hover:bg-blue-800 transition-colors"
         >
-          <span className="text-xs sm:text-sm">
-            <FaUserAlt />
-          </span>
+          {showBalance ? 'Hide Balance' : 'Show Balance'}
+        </button>
+        
+        <button className="p-2 rounded hover:bg-blue-800 transition-colors">
+          <Bell size={20} />
+        </button>
+        
+        <Link to="/profile" className="flex items-center p-2 rounded hover:bg-blue-800 transition-colors">
+          <FaUserAlt className="mr-2" />
+          <span>{profile?.name || 'User'}</span>
         </Link>
       </div>
     </header>

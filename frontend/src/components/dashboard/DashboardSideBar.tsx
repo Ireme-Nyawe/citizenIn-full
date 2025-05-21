@@ -86,7 +86,7 @@ const DashboardSidebar = ({
     <>
       {/* Mobile menu button - shown only on small screens */}
       <button 
-        className="md:hidden fixed top-4 left-4 z-40 p-2 rounded-md bg-primary text-white"
+        className="md:hidden fixed top-4 left-4 z-40 p-2 rounded-md bg-blue-600 text-white"
         onClick={sideBarToggle}
       >
         {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
@@ -96,10 +96,10 @@ const DashboardSidebar = ({
       <aside
         className={`fixed md:relative z-30 transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } md:translate-x-0 transition-all duration-300 ease-in-out w-72 bg-primary h-screen shadow-xl`}
+        } md:translate-x-0 transition-all duration-300 ease-in-out w-72 bg-blue-700 h-screen shadow-xl`}
       >
         {/* Logo area */}
-        <div className="flex items-center justify-center h-20 border-b border-primary-700">
+        <div className="flex items-center justify-center h-20 border-b border-blue-600">
           <h1 className="text-2xl font-bold text-white">Dashboard</h1>
         </div>
 
@@ -111,8 +111,8 @@ const DashboardSidebar = ({
               to={link.path}
               className={`flex items-center gap-3 p-3 rounded-lg transition-all duration-200 ${
                 isActive(link.path)
-                  ? 'bg-secondary text-white shadow-md'
-                  : 'text-white/80 hover:bg-primary-700 hover:text-white'
+                  ? 'bg-blue-500 text-white shadow-md'
+                  : 'text-white/80 hover:bg-blue-600 hover:text-white'
               }`}
             >
               <span className="text-xl">{link.icon}</span>
@@ -127,10 +127,10 @@ const DashboardSidebar = ({
         </nav>
 
         {/* Logout button - fixed to bottom */}
-        <div className="absolute bottom-8 w-full px-4">
+        <div className="absolute bottom-20 w-full px-4">
           <Link
             to="/logout"
-            className="flex items-center gap-3 p-3 rounded-lg transition-colors bg-red-600 text-white hover:bg-red-700 shadow-md"
+            className="flex items-center gap-3 p-3 rounded-lg transition-colors bg-blue-800 text-white hover:bg-blue-900 shadow-md"
           >
             <span className="text-xl">
               <FaSignOutAlt />
