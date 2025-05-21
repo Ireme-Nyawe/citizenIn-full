@@ -1,7 +1,6 @@
 import { FaUserAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { Bell } from 'lucide-react';
-import { useEffect, useState } from 'react';
 
 interface DashboardHeaderProps {
   sideBarToggle: () => void;
@@ -9,25 +8,6 @@ interface DashboardHeaderProps {
 }
 
 const DashboardHeader = ({ sideBarToggle, profile }: DashboardHeaderProps) => {
-  const usePersistedState = (key: string, defaultValue: boolean) => {
-    const [state, setState] = useState(() => {
-      const storedValue =
-        typeof window !== 'undefined' ? localStorage.getItem(key) : null;
-      return storedValue ? JSON.parse(storedValue) : defaultValue;
-    });
-
-    useEffect(() => {
-      localStorage.setItem(key, JSON.stringify(state));
-    }, [key, state]);
-
-    return [state, setState];
-  };
-
-  const [showBalance, setShowBalance] = usePersistedState(
-    'balanceVisibility',
-    true
-  );
-
   return (
     <header className="bg-blue-700 text-white flex justify-between items-center p-4 shadow-md">
       <div className="flex items-center">
@@ -40,17 +20,10 @@ const DashboardHeader = ({ sideBarToggle, profile }: DashboardHeaderProps) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <h1 className="text-xl font-bold">Fixo</h1>
+        <h1 className="text-xl font-bold">CitizeIn</h1>
       </div>
       
-      <div className="flex items-center space-x-4">
-        <button 
-          onClick={() => setShowBalance(!showBalance)}
-          className="p-2 bg-blue-600 rounded hover:bg-blue-800 transition-colors"
-        >
-          {showBalance ? 'Hide Balance' : 'Show Balance'}
-        </button>
-        
+      <div className="flex items-center space-x-4">        
         <button className="p-2 rounded hover:bg-blue-800 transition-colors">
           <Bell size={20} />
         </button>

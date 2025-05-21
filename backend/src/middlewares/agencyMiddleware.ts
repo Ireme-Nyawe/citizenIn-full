@@ -64,7 +64,7 @@ export const isAnyAgencyExist = async (
       return;
     }
 
-    req.categories = Agency;
+    req.agencies = Agency;
     return next();
   } catch (error: any) {
     return next(error);

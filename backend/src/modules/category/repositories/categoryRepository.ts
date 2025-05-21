@@ -17,7 +17,7 @@ const findAllCategory = async () => {
 };
 
 const deleteCategory = async (id: string) => {
-  return await Category.findByIdAndDelete({ id });
+  return await Category.findByIdAndDelete(id);
 };
 export default {
   createCategory,

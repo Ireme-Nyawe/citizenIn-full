@@ -10,3 +10,12 @@ export interface IUser {
     phone?: string;
     profile?: string;
   }
+
+  export interface ICategory {
+    _id?: string;
+    name: string;
+    type: string;
+    description?: string;
+    createdAt?: string;
+    updatedAt?: string;
+  }

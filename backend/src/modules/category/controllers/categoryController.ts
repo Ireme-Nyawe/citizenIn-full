@@ -20,8 +20,8 @@ const createCategory = async (req: Request, res: Response) => {
   const findCategoryById = async (req: Request, res: Response) => {
     try {
 
-      res.status(httpStatus.CREATED).json({
-        status: httpStatus.CREATED,
+      res.status(httpStatus.OK).json({
+        status: httpStatus.OK,
         message: "Category retrieved ",
         data:req.category,
       });
@@ -34,8 +34,8 @@ const createCategory = async (req: Request, res: Response) => {
   const findAllCategories= async (req: Request, res: Response) => {
     try {
 
-      res.status(httpStatus.CREATED).json({
-        status: httpStatus.CREATED,
+      res.status(httpStatus.OK).json({
+        status: httpStatus.OK,
         message: "Categories Retrieved",
         data:req.categories,
       });
@@ -68,8 +68,7 @@ const createCategory = async (req: Request, res: Response) => {
         const category = await categoryRepository.deleteCategory(id)
       res.status(httpStatus.OK).json({
         status: httpStatus.OK,
-        message: "Category Updated Successfully!",
-        data:category,
+        message: "Category Deleted Successfully!",
       });
     } catch (error: any) {
       res

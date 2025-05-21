@@ -18,7 +18,7 @@ const findAllAgency = async () => {
 };
 
 const deleteAgency = async (id: string) => {
-  return await Agency.findByIdAndDelete({ id });
+  return await Agency.findByIdAndDelete(id);
 };
 export default {
   createAgency,

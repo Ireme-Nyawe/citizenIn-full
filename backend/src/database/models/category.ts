@@ -2,6 +2,7 @@ import mongoose, { Schema } from "mongoose";
 export interface ICategory extends Document {
   _id?: mongoose.Types.ObjectId | string;
   name: string;
+  type:string;
   description?: string;
 }
 declare global {
@@ -19,6 +20,9 @@ const categorySchema: Schema = new Schema(
       required: true,
       unique: true,
       trim: true,
+    },
+    type: {
+      type: String,
     },
     description: {
       type: String,

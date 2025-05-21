@@ -5,10 +5,8 @@ import {
   FaBox,
   FaUsers,
   FaUser,
-  FaComments,
   FaSignOutAlt,
   FaExchangeAlt,
-  FaHeadset,
   FaTimes,
   FaBars
 } from 'react-icons/fa';
@@ -31,7 +29,6 @@ const DashboardSidebar = ({
   const location = useLocation();
   const [userRole, setUserRole] = useState<string | null>(null);
   
-  // Get current active path
   const currentPath = location.pathname;
   
   useEffect(() => {
@@ -46,37 +43,34 @@ const DashboardSidebar = ({
     }
   }, []);
 
-  // Define menu links for different conditions
   const condition1Links: MenuItem[] = [
-    { name: 'Dashboard', icon: <FaHome />, path: '/dashboard' },
-    { name: 'Products', icon: <FaBox />, path: '/dashboard/products' },
-    { name: 'Users', icon: <FaUsers />, path: '/dashboard/users' },
-    { name: 'Profile', icon: <FaUser />, path: '/dashboard/profile' },
-    { name: 'Support', icon: <FaHeadset />, path: '/dashboard/support' },
+    { name: 'Dashboard', icon: <FaHome />, path: '/dashboard/admin' },
+    { name: 'Categories', icon: <FaBox />, path: '/dashboard/admin/categories' },
+    { name: 'Institutions', icon: <FaUsers />, path: '/dashboard/admin/institutions' },
+    { name: 'Institutions Users', icon: <FaUser />, path: '/dashboard/admin/users' },
   ];
 
   const condition2Links: MenuItem[] = [
-    { name: 'Dashboard', icon: <FaHome />, path: '/dashboard' },
-    { name: 'Payments', icon: <FaExchangeAlt />, path: '/dashboard/payments' },
-    { name: 'Profile', icon: <FaUser />, path: '/dashboard/profile' },
+    { name: 'Dashboard', icon: <FaHome />, path: '/dashboard/agency' },
+    { name: 'Users', icon: <FaUsers />, path: '/dashboard/agency/users' },
+    { name: 'Complaints', icon: <FaExchangeAlt />, path: '/dashboard/agency/complaints' },
+    { name: 'Feedbacks', icon: <FaExchangeAlt />, path: '/dashboard/agency/feedbacks' },
   ];
 
   const defaultLinks: MenuItem[] = [
-    { name: 'Home', icon: <FaHome />, path: '/dashboard' },
-    { name: 'Messages', icon: <FaComments />, path: '/dashboard/messages' },
-    { name: 'Profile', icon: <FaUser />, path: '/dashboard/profile' },
+    { name: 'Dashboard', icon: <FaHome />, path: '/dashboard/citizen' },
+    { name: 'Complaints', icon: <FaBox />, path: '/dashboard/citizen/complaints' },
+    { name: 'Feedbacks', icon: <FaBox />, path: '/dashboard/citizen/feedbacks' },
   ];
 
-  // Determine which links to show based on user role
   let menuLinks: MenuItem[] = defaultLinks;
   
   if (userRole === 'admin') {
     menuLinks = condition1Links;
-  } else if (userRole === 'technician') {
+  } else if (userRole === 'agency') {
     menuLinks = condition2Links;
   }
 
-  // Check if a link is active
   const isActive = (path: string) => {
     return currentPath === path || 
            (path !== '/dashboard' && currentPath.startsWith(path));
@@ -84,7 +78,6 @@ const DashboardSidebar = ({
 
   return (
     <>
-      {/* Mobile menu button - shown only on small screens */}
       <button 
         className="md:hidden fixed top-4 left-4 z-40 p-2 rounded-md bg-blue-600 text-white"
         onClick={sideBarToggle}
@@ -92,18 +85,13 @@ const DashboardSidebar = ({
         {isSidebarOpen ? <FaTimes size={20} /> : <FaBars size={20} />}
       </button>
 
-      {/* Sidebar */}
       <aside
         className={`fixed md:relative z-30 transform ${
           isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
         } md:translate-x-0 transition-all duration-300 ease-in-out w-72 bg-blue-700 h-screen shadow-xl`}
       >
-        {/* Logo area */}
-        <div className="flex items-center justify-center h-20 border-b border-blue-600">
-          <h1 className="text-2xl font-bold text-white">Dashboard</h1>
-        </div>
+       
 
-        {/* Nav links */}
         <nav className="p-4 space-y-1 mt-4">
           {menuLinks.map((link) => (
             <Link
@@ -118,7 +106,6 @@ const DashboardSidebar = ({
               <span className="text-xl">{link.icon}</span>
               <span className="font-medium">{link.name}</span>
               
-              {/* Active indicator */}
               {isActive(link.path) && (
                 <span className="ml-auto h-2 w-2 rounded-full bg-white"></span>
               )}
@@ -126,7 +113,6 @@ const DashboardSidebar = ({
           ))}
         </nav>
 
-        {/* Logout button - fixed to bottom */}
         <div className="absolute bottom-20 w-full px-4">
           <Link
             to="/logout"
@@ -140,7 +126,6 @@ const DashboardSidebar = ({
         </div>
       </aside>
 
-      {/* Backdrop overlay for mobile */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-20 md:hidden"

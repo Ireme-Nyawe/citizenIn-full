@@ -68,8 +68,7 @@ const createAgency = async (req: Request, res: Response) => {
         const Agency = await agencyRepository.deleteAgency(id)
       res.status(httpStatus.OK).json({
         status: httpStatus.OK,
-        message: "Agency Updated Successfully!",
-        data:Agency,
+        message: "Agency Deleted Successfully!",
       });
     } catch (error: any) {
       res

@@ -7,6 +7,8 @@ import FAQsPage from "./pages/FAQsPage";
 import ProtectedRoute from "./components/dashboard/ProtectedRoute";
 import DashboardLayout from "./pages/dashboard/DashboardLayout";
 import Logout from "./components/dashboard/Logout";
+import Categories from "./pages/dashboard/admin/Categories";
+import Institutions from "./pages/dashboard/admin/Institutions";
 
 const AppRouter = () => {
   return (
@@ -21,6 +23,8 @@ const AppRouter = () => {
       <Route element={<ProtectedRoute />}>
         {/* admin */}
         <Route path="/dashboard/admin" element={<DashboardLayout />}>
+        <Route path="categories" element={<Categories/>}/>
+        <Route path="institutions" element={<Institutions/>}/>
           <Route path="*" element={<h1>Page Not Found</h1>} />
         </Route>
         {/* agency */}
