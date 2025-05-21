@@ -42,7 +42,7 @@ const GetStartedContent: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
-        {/* Form Header */}
+ 
         <div className="text-center">
           <h2 className="text-3xl font-extrabold text-gray-900">
             {showLogin ? 'Sign in to your account' : 'Create your account'}
@@ -54,12 +54,10 @@ const GetStartedContent: React.FC = () => {
           </p>
         </div>
 
-        {/* Form */}
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <input type="hidden" name="remember" value="true" />
           
           <div className="space-y-4">
-            {/* Login Form Fields */}
             {showLogin ? (
               <>
                 <div>
@@ -114,7 +112,6 @@ const GetStartedContent: React.FC = () => {
                 </div>
               </>
             ) : (
-              // Registration Form Fields
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -241,7 +238,6 @@ const GetStartedContent: React.FC = () => {
             )}
           </div>
 
-          {/* Remember me & Forgot password */}
           {showLogin && (
             <div className="flex items-center justify-between">
               <div className="flex items-center">
@@ -264,7 +260,6 @@ const GetStartedContent: React.FC = () => {
             </div>
           )}
 
-          {/* Submit button */}
           <div>
             <button
               type="submit"
@@ -274,7 +269,6 @@ const GetStartedContent: React.FC = () => {
             </button>
           </div>
 
-          {/* Toggle between login and register */}
           <div className="text-sm text-center">
             {showLogin ? (
               <p>

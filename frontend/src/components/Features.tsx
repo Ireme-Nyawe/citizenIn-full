@@ -6,11 +6,11 @@ import {
     ArrowRight,
     CheckCircle,
   } from "lucide-react";
+import { Link } from "react-router-dom";
   
 const Features = () => {
   return (
     <div>
-        {/* What Section */}
         <section id="features" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12">
@@ -19,16 +19,16 @@ const Features = () => {
 
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8">
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4 text-justify">
                 CitizenIn is a centralized platform designed to streamline
                 communication between citizens and government agencies.
               </p>
-              <p className="text-lg mb-4">
+              <p className="text-lg mb-4 text-justify">
                 Our system replaces fragmented complaint channels with a unified
                 solution that ensures timely responses and transparent
                 resolution processes.
               </p>
-              <p className="text-lg">
+              <p className="text-lg text-justify">
                 With CitizenIn, your concerns don't get lost in bureaucratic
                 processes - they reach the right people and get the attention
                 they deserve.
@@ -66,15 +66,13 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Why Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-4">
             Why CitizenIn?
           </h2>
-          <p className="text-lg text-center mb-12 max-w-3xl mx-auto">
-            Our platform addresses critical challenges in citizen-government
-            communication
+          <p className="text-lg text-center mb-12 max-w-3xl mx-auto text-justify">
+            Our platform addresses critical challenges in citizen engagement in public services .
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -83,8 +81,8 @@ const Features = () => {
                 <Clock className="text-red-600" size={24} />
               </div>
               <h3 className="text-xl font-semibold mb-2">Delayed Responses</h3>
-              <p>
-                We eliminate bottlenecks by routing complaints directly to
+              <p className="text-justify">
+                We eliminate problems from routing complaints directly to
                 responsible departments, reducing response times by up to 70%.
               </p>
             </div>
@@ -94,7 +92,7 @@ const Features = () => {
                 <GanttChart className="text-blue-600" size={24} />
               </div>
               <h3 className="text-xl font-semibold mb-2">Fragmented Systems</h3>
-              <p>
+              <p className="text-justify">
                 Our centralized platform replaces disconnected communication
                 channels with a single point of contact for all citizen
                 concerns.
@@ -106,7 +104,7 @@ const Features = () => {
                 <Users className="text-green-600" size={24} />
               </div>
               <h3 className="text-xl font-semibold mb-2">Low Satisfaction</h3>
-              <p>
+              <p className="text-justify">
                 Transparent tracking and timely updates keep citizens informed,
                 building trust and improving satisfaction with government
                 services.
@@ -116,7 +114,6 @@ const Features = () => {
         </div>
       </section>
 
-      {/* How It Works Section */}
       <section id="how-it-works" className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-16">How It Works</h2>
@@ -145,8 +142,8 @@ const Features = () => {
               </div>
               <h3 className="text-xl font-semibold mb-2">Route</h3>
               <p className="text-gray-600">
-                Our system automatically categorizes and directs your issue to
-                the right department
+                Our system allows categorization and routing directly your issue to
+                the right instutution 
               </p>
             </div>
 
@@ -181,7 +178,6 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Where To Get Started Section */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-8">
@@ -210,7 +206,7 @@ const Features = () => {
                         <CheckCircle size={20} />
                       </div>
                       <span className="ml-2">
-                        Create a free account with your email
+                        Create a free account with your persona Information and email .
                       </span>
                     </li>
                     <li className="flex items-start">
@@ -218,7 +214,7 @@ const Features = () => {
                         <CheckCircle size={20} />
                       </div>
                       <span className="ml-2">
-                        Verify your identity with a government ID
+                        Sign into the system 
                       </span>
                     </li>
                     <li className="flex items-start">
@@ -226,7 +222,7 @@ const Features = () => {
                         <CheckCircle size={20} />
                       </div>
                       <span className="ml-2">
-                        Submit your first complaint or suggestion
+                        Submit your first complaint or feedback
                       </span>
                     </li>
                     <li className="flex items-start">
@@ -234,20 +230,28 @@ const Features = () => {
                         <CheckCircle size={20} />
                       </div>
                       <span className="ml-2">
-                        Download our mobile app for on-the-go access
+                        Keep tracking the you complaint 
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <div className="flex-shrink-0 h-6 w-6 text-green-500 mt-0.5">
+                        <CheckCircle size={20} />
+                      </div>
+                      <span className="ml-2">
+                        Download our mobile app for on-the-go access (Coming after)
                       </span>
                     </li>
                   </ul>
-                  <button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium flex items-center">
-                    Create an Account
+                  <Link to ="get-started"><button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-md font-medium flex items-center">
+                    Get Started
                     <ArrowRight className="ml-1" size={16} />
-                  </button>
+                  </button></Link>
                 </div>
 
                 <div className="md:w-1/2">
                   <div className="bg-blue-50 p-4 rounded-lg border border-blue-100">
                     <h4 className="text-lg font-medium mb-3">
-                      Available Platforms
+                      Possible Ways
                     </h4>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="bg-white p-3 rounded border border-gray-200 flex items-center">
@@ -271,7 +275,7 @@ const Features = () => {
                         <div className="ml-3">
                           <div className="font-medium">Web App</div>
                           <div className="text-xs text-gray-500">
-                            CitizenIn.gov
+                            -------
                           </div>
                         </div>
                       </div>
@@ -302,7 +306,7 @@ const Features = () => {
                         <div className="ml-3">
                           <div className="font-medium">Mobile App</div>
                           <div className="text-xs text-gray-500">
-                            iOS & Android
+                            iOS & Android (Coming Soon)
                           </div>
                         </div>
                       </div>

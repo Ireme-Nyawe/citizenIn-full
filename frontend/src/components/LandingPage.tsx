@@ -5,7 +5,7 @@ import FAQs from "./FAQs";
 const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col bg-blue-50">
-      <section className="min-h-screen bg-blue-700 text-white flex items-center bg-[url('/cve.png')] bg-cover bg-center">
+      <section className="min-h-screen bg-blue-700 text-white flex items-center bg-[url('/citizen-engagement.png')] bg-cover bg-center">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row">
             <div className="md:w-1/2 md:pr-8 py-16">
