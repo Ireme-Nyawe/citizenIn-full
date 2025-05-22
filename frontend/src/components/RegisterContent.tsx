@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { User, Mail, Phone, Lock, Eye, EyeOff } from 'lucide-react';
 import { axiosInstance } from '../utils/axios';
 import { toast } from 'sonner';
