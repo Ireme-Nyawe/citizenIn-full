@@ -13,7 +13,7 @@ const findComplaintByName = async (name: string) => {
   return await Complaint.findOne({ name });
 };
 const findAllComplaint = async () => {
-  return await Complaint.find().populate("userId").populate("agencyId");
+  return await Complaint.find().populate("userId").populate("agencyId").populate("categoryId");
 };
 
 const deleteComplaint = async (id: string) => {
