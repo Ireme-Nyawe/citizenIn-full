@@ -172,6 +172,22 @@ CitizenIn/
 - **Institutions** - Government agencies and departments
 - **Responses** - Agency responses to complaints
 
+## 🧪 Testing the Application
+
+You can explore the full functionality of **CitizenIn** by using the demo credentials provided below, or by registering as a citizen to create your own account.
+
+### 🔑 Demo Admin Credentials
+- **Email:** `demouser@gmail.com`  
+- **Password:** `Password123`
+
+Once logged in, you can:
+- Manage institutions and categories
+- Add institution members
+- View and respond to citizen complaints
+
+Feel free to create additional users or register as a citizen to experience the platform from different roles.
+
+
 ## 🤝 Contributing
 
 1. Fork the repository
