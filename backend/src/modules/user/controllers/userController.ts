@@ -39,7 +39,7 @@ const userUpdateProfile = async (req: Request, res: Response): Promise<any> => {
 
 const createUser = async (req: Request, res: Response): Promise<any> => {
   try {
-    const password = hashPassword(req.body.password);
+    const password = await hashPassword(req.body.password);
     const userData = { ...req.body, password };
     const user = await userRepository.createUser(userData);
     return res.status(httpStatus.CREATED).json({

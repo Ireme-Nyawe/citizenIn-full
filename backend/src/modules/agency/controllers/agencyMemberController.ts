@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import httpStatus from "http-status";
 import agencyMemberRepository from "../repositories/agencyMemberRepository";
 import userRepository from "../../user/repositories/userRepository";
+import { hashPassword } from "../../../helpers/auth";
 const createAgencyMember = async (req: Request, res: Response) => {
   try {
     const {
@@ -19,7 +20,7 @@ const createAgencyMember = async (req: Request, res: Response) => {
       firstName,
       lastName,
       email,
-      password,
+      password:await hashPassword(password),
       role,
       is2fa,
       phone,
