@@ -9,7 +9,7 @@ const findComplaintById = async (id: any) => {
 const updateComplaint = async (id: string, ComplaintData: IComplaint) => {
   return await Complaint.findByIdAndUpdate(id, ComplaintData, { new: true });
 };
-const findComplaintByName = async (name: string) => {
+const findComplaintByattributes = async (title: string,agencyId:any) => {
   return await Complaint.findOne({ name });
 };
 const findAllComplaint = async () => {
@@ -25,5 +25,5 @@ export default {
   findComplaintById,
   updateComplaint,
   deleteComplaint,
-  findComplaintByName,
+  findComplaintByattributes,
 };
