@@ -15,6 +15,14 @@ const findComplaintByattributes = async (title: string,agencyId:any) => {
 const findAllComplaint = async () => {
   return await Complaint.find().populate("userId").populate("agencyId").populate("categoryId");
 };
+const findAllComplaintCitizen = async (userId:any) => {
+    return await Complaint.find({userId}).populate("userId").populate("agencyId").populate("categoryId");
+  };
+
+  const findAllComplaintAgency = async (agencyId:any) => {
+  return await Complaint.find({agencyId}).populate("userId").populate("agencyId").populate("categoryId");
+};
+
 
 const deleteComplaint = async (id: string) => {
   return await Complaint.findByIdAndDelete(id);
@@ -26,4 +34,6 @@ export default {
   updateComplaint,
   deleteComplaint,
   findComplaintByattributes,
+  findAllComplaintCitizen,
+  findAllComplaintAgency
 };

@@ -7,7 +7,7 @@ export interface IComplaint extends Document {
   agencyId: mongoose.Types.ObjectId;
   title: string;
   message: string;
-  status?: "pending" | "in_progress" | "resolved" | "rejected";
+  status?: "pending" | "resolved" | "rejected";
   attachments?: string[];
 }
 declare global {
@@ -45,14 +45,9 @@ const complaintSchema: Schema = new Schema(
     },
     status: {
       type: String,
-      enum: ["pending", "in_progress", "resolved", "rejected"],
+      enum: ["pending", "resolved", "rejected"],
       default: "pending",
     },
-    attachments: [
-      {
-        type: String,
-      },
-    ],
   },
   { timestamps: true }
 );

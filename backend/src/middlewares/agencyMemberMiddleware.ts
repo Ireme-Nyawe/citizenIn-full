@@ -47,6 +47,29 @@ export const isAgencyMemberExistByName = async (
     return next(error);
   }
 };
+export const isAnyAgencyMemberExistAgency = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const agency = await agencyMemberRepository.findAgencyMemberByUserId(req.user?._id)
+    const AgencyMember = await agencyMemberRepository.findAllAgencyMemberAgency(agency?._id);
+
+    if (!AgencyMember) {
+      res.status(httpStatus.NOT_FOUND).json({
+        status: httpStatus.NOT_FOUND,
+        message: "AgencyMember not found",
+      });
+      return;
+    }
+
+    req.agencyMembers = AgencyMember;
+    return next();
+  } catch (error: any) {
+    return next(error);
+  }
+};
 export const isAnyAgencyMemberExist = async (
   req: Request,
   res: Response,

@@ -24,7 +24,7 @@ const createAgencyMember = async (req: Request, res: Response) => {
       is2fa,
       phone,
     });
-    const AgencyMember = await agencyMemberRepository.createAgencyMember({
+    const AgencyMember:any = await agencyMemberRepository.createAgencyMember({
       agencyId,
       position,
       userId: newUuser._id,

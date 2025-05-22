@@ -12,9 +12,16 @@ const updateAgencyMember = async (id: string, AgencyMemberData: IAgencyMember) =
 const findAgencyMemberByName = async (name: string) => {
   return await AgencyMember.findOne({ name });
 };
+const findAgencyMemberByUserId = async (userId: any) => {
+  return await AgencyMember.findOne({ userId });
+};
 const findAllAgencyMember = async () => {
   return await AgencyMember.find().populate("userId").populate("agencyId");
 };
+const findAllAgencyMemberAgency = async (agencyId:any) => {
+  return await AgencyMember.find({agencyId}).populate("userId").populate("agencyId");
+};
+
 
 const deleteAgencyMember = async (id: string) => {
   return await AgencyMember.findByIdAndDelete(id);
@@ -26,4 +33,6 @@ export default {
   updateAgencyMember,
   deleteAgencyMember,
   findAgencyMemberByName,
+  findAgencyMemberByUserId,
+  findAllAgencyMemberAgency
 };

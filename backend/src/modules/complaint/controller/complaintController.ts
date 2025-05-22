@@ -31,7 +31,7 @@ const createComplaint = async (req: Request, res: Response) => {
         .json({ message: "Internal server error", error: error.message });
     }
   };
-  const findAllAgencies= async (req: Request, res: Response) => {
+  const findAllComplaint= async (req: Request, res: Response) => {
     try {
 
       res.status(httpStatus.CREATED).json({
@@ -77,7 +77,7 @@ const createComplaint = async (req: Request, res: Response) => {
     }
   };
 
-export default {createComplaint,findAllAgencies,findComplaintById,updateComplaint,deleteComplaint}
+export default {createComplaint,findAllComplaint,findComplaintById,updateComplaint,deleteComplaint}
   
   
   
