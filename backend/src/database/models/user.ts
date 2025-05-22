@@ -8,7 +8,7 @@ export interface IUser extends Document {
   password?: string;
   role?: string;
   is2fa?: boolean;
-  isActive: boolean;
+  isActive?: boolean;
   phone?: string;
   profile?: string;
 }

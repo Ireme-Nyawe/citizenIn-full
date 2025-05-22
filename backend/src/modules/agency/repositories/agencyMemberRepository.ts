@@ -1,9 +1,9 @@
 import AgencyMember, { IAgencyMember } from "../../../database/models/agencyMember";
 
-const createAgencyMember = async (AgencyMemberData: IAgencyMember) => {
+const createAgencyMember = async (AgencyMemberData: any) => {
   return await AgencyMember.create(AgencyMemberData);
 };
-const findAgencyMemberById = async (id: string) => {
+const findAgencyMemberById = async (id: any) => {
   return await AgencyMember.findById(id).populate("userId").populate("agencyId");
 };
 const updateAgencyMember = async (id: string, AgencyMemberData: IAgencyMember) => {
