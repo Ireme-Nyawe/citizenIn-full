@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, Lock, Eye, EyeOff } from 'lucide-react';
+import { axiosInstance } from '../utils/axios';
+import { toast } from 'sonner';
 
 const RegisterContent = ({ switchToLogin }:any) => {
   const [formData, setFormData] = useState({
@@ -8,6 +10,7 @@ const RegisterContent = ({ switchToLogin }:any) => {
     email: '',
     phone: '',
     password: '',
+    role:"citizen",
     is2fa: false
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -20,9 +23,37 @@ const RegisterContent = ({ switchToLogin }:any) => {
     }));
   };
 
-  const handleSubmit = (e:any) => {
+  const resetForm = () => {
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      is2fa: false,
+      phone: "",
+      role:"citizen"
+    });}
+
+  const handleSubmit = async (e:any) => {
     e.preventDefault();
     // Handle registration logic here
+
+    try {
+      const response = await axiosInstance.post("/api/user", formData);
+      console.log(response);
+
+      if (response.status == 201) {
+        resetForm();
+        toast.success(response.data.message);
+  switchToLogin
+      } else {
+        console.error("Failed to create agency member");
+        toast.error(response.data.message);
+      }
+    } catch (error: any) {
+      console.error("Error creating agency member:", error);
+      toast.error(error.message);
+    }
     console.log('Registration submitted:', formData);
   };
 

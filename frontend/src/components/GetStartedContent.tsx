@@ -22,9 +22,9 @@ const GetStartedContent: React.FC = () => {
     setView("verifyLoginOtp");
     setLogingUser(user);
   };
-  const switchToForgotPassword = () => setView("forgotPassword");
-  const switchToResetPassword = () => setView("resetPassword");
-  const switchToVerifyResetOtp = () => setView("verifyResetOtp");
+  // const switchToForgotPassword = () => setView("forgotPassword");
+  // const switchToResetPassword = () => setView("resetPassword");
+  // const switchToVerifyResetOtp = () => setView("verifyResetOtp");
 
   return (
     <div className="min-h-screen flex flex-col md:flex-row">

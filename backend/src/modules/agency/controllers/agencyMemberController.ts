@@ -60,7 +60,7 @@ const findAllAgencies = async (req: Request, res: Response) => {
     res.status(httpStatus.CREATED).json({
       status: httpStatus.CREATED,
       message: "Categories Retrieved",
-      data: req.categories,
+      data: req.agencyMembers,
     });
   } catch (error: any) {
     res

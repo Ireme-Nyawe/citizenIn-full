@@ -10,7 +10,7 @@ const updateComplaint = async (id: string, ComplaintData: IComplaint) => {
   return await Complaint.findByIdAndUpdate(id, ComplaintData, { new: true });
 };
 const findComplaintByattributes = async (title: string,agencyId:any) => {
-  return await Complaint.findOne({ name });
+  return await Complaint.findOne({ title,agencyId });
 };
 const findAllComplaint = async () => {
   return await Complaint.find().populate("userId").populate("agencyId").populate("categoryId");

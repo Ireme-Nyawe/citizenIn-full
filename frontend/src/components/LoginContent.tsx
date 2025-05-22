@@ -129,12 +129,12 @@ const LoginContent = ({ switchToRegister,switchToVerifyLoginOtp }: any) => {
             <div className="flex items-center"></div>
 
             <div className="text-sm">
-              <Link
+              {/* <Link
                 to="/forgot-password"
                 className="font-medium text-blue-600 hover:text-blue-500"
               >
                 Forgot your password?
-              </Link>
+              </Link> */}
             </div>
           </div>
 

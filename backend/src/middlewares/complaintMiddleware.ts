@@ -33,7 +33,7 @@ export const isComplaintExistByName = async (
   res: Response,
   next: NextFunction
 ): Promise<void> => {
-  const { title,agencyId } = req.params;
+  const { title,agencyId } = req.body;
 
   try {
     const Complaint = await complainRepository.findComplaintByattributes(title,agencyId);

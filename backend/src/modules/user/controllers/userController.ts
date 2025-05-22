@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
 import authRepository from "../../auth/repositories/authRepository";
+import userRepository from "../repositories/userRepository";
 const userViewProfile = async (req: Request, res: Response): Promise<any> => {
   try {
     return res.status(httpStatus.OK).json({
@@ -35,4 +36,19 @@ const userUpdateProfile = async (req: Request, res: Response): Promise<any> => {
   }
 };
 
-export default { userViewProfile, userUpdateProfile };
+const createUser = async (req: Request, res: Response): Promise<any> => {
+  try {
+    const user = await userRepository.createUser(req.body);
+    return res.status(httpStatus.CREATED).json({
+      status: httpStatus.CREATED,
+      message: "User Registered successfully",
+      data: user,
+    });
+  } catch (error: any) {
+    res.status(httpStatus.INTERNAL_SERVER_ERROR).json({
+      message: error.message,
+      status: httpStatus.INTERNAL_SERVER_ERROR,
+    });
+  }
+};
+export default { userViewProfile, userUpdateProfile,createUser };

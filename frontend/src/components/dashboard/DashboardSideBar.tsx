@@ -52,15 +52,12 @@ const DashboardSidebar = ({
 
   const condition2Links: MenuItem[] = [
     { name: 'Dashboard', icon: <FaHome />, path: '/dashboard/agency' },
-    { name: 'Users', icon: <FaUsers />, path: '/dashboard/agency/users' },
     { name: 'Complaints', icon: <FaExchangeAlt />, path: '/dashboard/agency/complaints' },
-    { name: 'Feedbacks', icon: <FaExchangeAlt />, path: '/dashboard/agency/feedbacks' },
   ];
 
   const defaultLinks: MenuItem[] = [
     { name: 'Dashboard', icon: <FaHome />, path: '/dashboard/citizen' },
     { name: 'Complaints', icon: <FaBox />, path: '/dashboard/citizen/complaints' },
-    { name: 'Feedbacks', icon: <FaBox />, path: '/dashboard/citizen/feedbacks' },
   ];
 
   let menuLinks: MenuItem[] = defaultLinks;

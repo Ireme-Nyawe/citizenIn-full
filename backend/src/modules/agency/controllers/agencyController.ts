@@ -34,10 +34,10 @@ const createAgency = async (req: Request, res: Response) => {
   const findAllAgencies= async (req: Request, res: Response) => {
     try {
 
-      res.status(httpStatus.CREATED).json({
-        status: httpStatus.CREATED,
-        message: "Categories Retrieved",
-        data:req.categories,
+      res.status(httpStatus.OK).json({
+        status: httpStatus.OK,
+        message: "agencies Retrieved",
+        data:req.agencies,
       });
     } catch (error: any) {
       res
