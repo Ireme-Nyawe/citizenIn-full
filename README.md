@@ -1,6 +1,6 @@
 # CitizenIn - Citizen Complaints and Engagement System
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://citizenin.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://citizen-in-full.vercel.app/)
 [![Backend API](https://img.shields.io/badge/Backend%20API-Live-green)](https://citizenin-full.onrender.com)
 
 ## 📋 Overview
