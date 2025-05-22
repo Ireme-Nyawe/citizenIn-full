@@ -151,9 +151,8 @@ CitizenIn/
 
 ## 🌐 Live Deployment
 
-- **Frontend**: [https://citizenin.netlify.app/](https://citizenin.netlify.app/)
+- **Frontend**: [https://citizen-in-full.vercel.app/]([https://citizen-in-full.vercel.app/))
 - **Backend API**: [https://citizenin-full.onrender.com](https://citizenin-full.onrender.com)
-- **API Documentation**: [Backend URL]/api/docs (if Swagger is implemented)
 
 ## 🔒 Security Features
 
