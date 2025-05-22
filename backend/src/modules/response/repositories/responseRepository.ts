@@ -15,6 +15,9 @@ const findResponseByName = async (message: string,complaintId:any) => {
 const findAllResponse = async () => {
   return await Response.find();
 };
+const findAllResponseComplaint = async (complaintId:any) => {
+    return await Response.find({complaintId}).populate("responderId");
+  };
 
 const deleteResponse = async (id: string) => {
   return await Response.findByIdAndDelete(id);
@@ -26,4 +29,5 @@ export default {
   updateResponse,
   deleteResponse,
   findResponseByName,
+  findAllResponseComplaint
 };

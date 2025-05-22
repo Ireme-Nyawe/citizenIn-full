@@ -5,7 +5,6 @@ export interface IResponse extends Document {
   complaintId: mongoose.Types.ObjectId;
   responderId: mongoose.Types.ObjectId; // user or agency staff
   message: string;
-  attachments?: string[];
 }
 declare global {
     namespace Express {
@@ -31,11 +30,6 @@ const responseSchema: Schema = new Schema(
       type: String,
       required: true,
     },
-    attachments: [
-      {
-        type: String,
-      },
-    ],
   },
   { timestamps: true }
 );
