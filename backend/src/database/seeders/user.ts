@@ -4,26 +4,12 @@ import { hashPassword } from "../../helpers/auth";
 const seedUsers = async () => {
   const users = [
     {
-      firstName: "Inono",
-      lastName: "Akima",
-      email: "akimana.inono@gmail.com",
+      firstName: "demo",
+      lastName: "user",
+      email: "demouser@gmail.com",
       password: await hashPassword("password123"),
       role: "admin",
     },
-    {
-      firstName: "Rwnda",
-      lastName: "Inono",
-      email: "inono.rwanda@gmail.com",
-      password: await hashPassword("password123"),
-      role: "agency",
-    },
-    {
-        firstName: "Ireme",
-        lastName: "Inono",
-        email: "inonoireme@gmail.com",
-        password: await hashPassword("password123"),
-        role: "citizen",
-      },
   ];
 
   await User.deleteMany({});

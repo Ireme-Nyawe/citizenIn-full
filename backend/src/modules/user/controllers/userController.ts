@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import httpStatus from "http-status";
 import authRepository from "../../auth/repositories/authRepository";
 import userRepository from "../repositories/userRepository";
+import { hashPassword } from "../../../helpers/auth";
 const userViewProfile = async (req: Request, res: Response): Promise<any> => {
   try {
     return res.status(httpStatus.OK).json({
@@ -38,7 +39,9 @@ const userUpdateProfile = async (req: Request, res: Response): Promise<any> => {
 
 const createUser = async (req: Request, res: Response): Promise<any> => {
   try {
-    const user = await userRepository.createUser(req.body);
+    const password = hashPassword(req.body.password);
+    const userData = { ...req.body, password };
+    const user = await userRepository.createUser(userData);
     return res.status(httpStatus.CREATED).json({
       status: httpStatus.CREATED,
       message: "User Registered successfully",
@@ -51,4 +54,4 @@ const createUser = async (req: Request, res: Response): Promise<any> => {
     });
   }
 };
-export default { userViewProfile, userUpdateProfile,createUser };
+export default { userViewProfile, userUpdateProfile, createUser };
