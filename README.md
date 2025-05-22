@@ -1,6 +1,6 @@
 # CitizenIn - Citizen Complaints and Engagement System
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://citizenin.netlify.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue)](https://citizen-in-full.vercel.app/)
 [![Backend API](https://img.shields.io/badge/Backend%20API-Live-green)](https://citizenin-full.onrender.com)
 
 ## 📋 Overview
@@ -151,9 +151,8 @@ CitizenIn/
 
 ## 🌐 Live Deployment
 
-- **Frontend**: [https://citizenin.netlify.app/](https://citizenin.netlify.app/)
+- **Frontend**: [https://citizen-in-full.vercel.app/]([https://citizen-in-full.vercel.app/))
 - **Backend API**: [https://citizenin-full.onrender.com](https://citizenin-full.onrender.com)
-- **API Documentation**: [Backend URL]/api/docs (if Swagger is implemented)
 
 ## 🔒 Security Features
 
